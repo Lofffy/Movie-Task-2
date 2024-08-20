@@ -1,11 +1,21 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 
 const PopularMovies = ({ movies }) => {
   const scrollRef = useRef(null);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
+  const checkScrollPosition = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setIsAtStart(scrollLeft === 0);
+      setIsAtEnd(scrollLeft + clientWidth >= scrollWidth);
+    }
+  };
 
   const scrollLeft = () => {
-    if (scrollRef.current) {
+    if (scrollRef.current && !isAtStart) {
       scrollRef.current.scrollBy({
         left: -400,
         behavior: 'smooth',
@@ -14,7 +24,7 @@ const PopularMovies = ({ movies }) => {
   };
 
   const scrollRight = () => {
-    if (scrollRef.current) {
+    if (scrollRef.current && !isAtEnd) {
       scrollRef.current.scrollBy({
         left: 400,
         behavior: 'smooth',
@@ -24,23 +34,25 @@ const PopularMovies = ({ movies }) => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      const handleScroll = () => {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-        if (scrollLeft === 0) {
-          scrollRef.current.scrollLeft = scrollWidth - clientWidth * 2;
-        } else if (scrollLeft + clientWidth >= scrollWidth) {
-          scrollRef.current.scrollLeft = clientWidth;
+      const scrollElement = scrollRef.current;
+
+      const handleInitialCheck = () => {
+        // Check the position and set states
+        checkScrollPosition();
+        // If at the start, enable the right arrow
+        if (isAtStart) {
+          setIsAtEnd(false);
         }
       };
 
-      const scrollElement = scrollRef.current;
-      scrollElement.addEventListener('scroll', handleScroll);
+      // Add scroll event listener
+      scrollElement.addEventListener('scroll', checkScrollPosition);
 
-      // Initialize scroll position
-      scrollRef.current.scrollLeft = scrollRef.current.clientWidth;
+      // Perform an initial check
+      handleInitialCheck();
 
       return () => {
-        scrollElement.removeEventListener('scroll', handleScroll);
+        scrollElement.removeEventListener('scroll', checkScrollPosition);
       };
     }
   }, []);
@@ -53,13 +65,15 @@ const PopularMovies = ({ movies }) => {
           <div className="flex space-x-2">
             <button
               onClick={scrollLeft}
-              className="fa-solid fa-arrow-right fa-rotate-180 max-w-72"
-              style={{ color: 'white' }}
+              className={`fa-solid fa-arrow-right fa-rotate-180 max-w-72 ${isAtStart ? 'text-gray-400 cursor-not-allowed' : 'text-white'}`}
+              style={{ color: isAtStart ? 'gray' : 'white' }}
+              disabled={isAtStart}
             />
             <button
               onClick={scrollRight}
-              className="fa-solid fa-arrow-right max-w-72"
-              style={{ color: 'white' }}
+              className={`fa-solid fa-arrow-right max-w-72 ${isAtEnd ? 'text-gray-400 cursor-not-allowed' : 'text-white'}`}
+              style={{ color: isAtEnd ? 'gray' : 'white' }}
+              disabled={isAtEnd}
             />
           </div>
         </div>
