@@ -1,4 +1,3 @@
-// src/components/PopularMovies.jsx
 import React, { useRef } from 'react';
 import MovieCard from './MovieCard';
 
@@ -8,7 +7,7 @@ const PopularMovies = ({ movies }) => {
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -200, // Adjust this value for how much you want to scroll left
+        left: -200, 
         behavior: 'smooth',
       });
     }
@@ -17,7 +16,7 @@ const PopularMovies = ({ movies }) => {
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 200, // Adjust this value for how much you want to scroll right
+        left: 200,
         behavior: 'smooth',
       });
     }
@@ -51,12 +50,12 @@ const PopularMovies = ({ movies }) => {
             {movies.map((movie, index) => (
               <MovieCard
                 key={index}
-                imageUrl={movie.big_image} // Replace with the correct field from your data
+                imageUrl={movie.big_image} 
               />
             ))}
           </div>
         </div>
-        {/* Add a white line separator */}
+    
         <hr className="border-t border-white mt-6" />
       </div>
     </section>

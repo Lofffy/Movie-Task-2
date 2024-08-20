@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-8 mx-auto">
+    <footer className="bg-[#1A1919] text-white py-8 mx-auto">
       <div className="container mx-auto grid grid-cols-4 gap-8">
         <div>
           <h3 className="font-bold mb-4">PROFILE</h3>

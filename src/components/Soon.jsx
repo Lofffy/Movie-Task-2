@@ -1,4 +1,4 @@
-// src/components/Soon.jsx
+
 import React from 'react';
 import SoonCard from './SoonCard';
 

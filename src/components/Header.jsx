@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 export default function Header() {
   return (
     <nav className="flex container mx-auto mt-7 justify-between mb-7">
-        <img className='w-30 h-9' src={logo} alt="Logo" /> {/* Use your imported logo here */}
+        <img className='w-30 h-9' src={logo} alt="Logo" />
         <div className="flex my-auto">
           <a href="" className="text-white mx-2">Home</a>
           <a href="" className="text-white mx-2">Recents</a>

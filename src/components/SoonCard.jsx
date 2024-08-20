@@ -1,4 +1,4 @@
-// src/components/SoonCard.jsx
+
 import React from 'react';
 
 const SoonCard = ({ movie }) => {
