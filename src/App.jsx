@@ -6,6 +6,7 @@ import Header from './components/Header'
 import './App.css'
 import Slider from './components/Slider';
 import Soon from './components/Soon';
+import Footer from './components/Footer';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -29,6 +30,7 @@ function App() {
     <Slider movies={movies}/>
     <PopularMovies movies={movies}/>
     <Soon movies={movies}/>
+    <Footer/>
     </>
   );
 }
