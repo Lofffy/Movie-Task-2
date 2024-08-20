@@ -22,8 +22,8 @@ const Slider = ({ movies }) => {
         className="w-1/4 h-full object-cover"
       />
       <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-        <h2 className="text-white text-2xl font-bold mb-4">Enjoy Watching</h2>
-        <button className="bg-gray-700 border border-white text-white px-6 py-2 rounded-lg">Watch Now</button>
+        <h2 className="text-white text-2xl font-bold mb-4">Enjoy On Watching Now</h2>
+        <button className="bg-[#6A6CD7] border border-black text-white px-6 py-2 rounded-lg">Watch Now</button>
       </div>
     </div>
   );
