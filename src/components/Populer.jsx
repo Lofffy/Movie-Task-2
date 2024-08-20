@@ -7,7 +7,7 @@ const PopularMovies = ({ movies }) => {
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -200, 
+        left: -400, 
         behavior: 'smooth',
       });
     }
@@ -16,7 +16,7 @@ const PopularMovies = ({ movies }) => {
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 200,
+        left: 400,
         behavior: 'smooth',
       });
     }
@@ -30,15 +30,17 @@ const PopularMovies = ({ movies }) => {
           <div className="flex space-x-2">
             <button
               onClick={scrollLeft}
-              className="bg-gray-800 text-white p-2 rounded-full"
-            >
-              &#8249;
+              className="fa-solid fa-arrow-right fa-rotate-180 max-w-72" style={
+                {color: 'white'}
+              }
+            > 
             </button>
             <button
               onClick={scrollRight}
-              className="bg-gray-800 text-white p-2 rounded-full"
-            >
-              &#8250;
+              className="fa-solid fa-arrow-right max-w-72" style={
+                {color: 'white'}
+              }
+            > 
             </button>
           </div>
         </div>
