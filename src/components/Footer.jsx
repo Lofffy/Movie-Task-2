@@ -1,11 +1,10 @@
-// src/components/Footer.jsx
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1919] text-white py-8 mx-auto">
-      <div className="container mx-auto grid grid-cols-4 gap-8">
+    <footer className="bg-[#1A1919] text-white py-8">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <h3 className="font-bold mb-4">PROFILE</h3>
           <ul className="space-y-2">
@@ -48,7 +47,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-700 mt-8 pt-4">
-        <p className="text-center text-gray-500">© 2024 Nizami cinema. All Rights Reserved</p>
+        <p className="text-center text-gray-500">© 2014 Nizami cinema. All Rights Reserved</p>
       </div>
     </footer>
   );
