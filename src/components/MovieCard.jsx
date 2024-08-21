@@ -13,7 +13,7 @@ const MovieCard = ({ imageUrl }) => {
   };
 
   return (
-    <div className="relative w-32 h-48 rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+    <div className="relative w-32 h-48 rounded-lg overflow-hidden shadow-lg flex-shrink-0 select-none">
       <img 
         src={imageUrl} 
         alt="Movie Poster" 
